@@ -1,1 +1,71 @@
-<p>sign-up works!</p>
+<div class="sign-up">
+  <div class="text-center col-12">
+    <h2>Sign Up Now!</h2>
+    <hr />
+  </div>
+  <form class="row g-3" (submit)="save()">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        id="inputFirstName"
+        placeholder="First Name"
+        name="firstName"
+        [(ngModel)]="user.firstName"
+      />
+    </div>
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        id="inputLastName"
+        placeholder="Last Name"
+        name="lastName"
+        [(ngModel)]="user.lastName"
+      />
+    </div>
+    <div class="col-md-12">
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail4"
+        placeholder="Email"
+        name="email"
+        [(ngModel)]="user.email"
+      />
+    </div>
+    <div class="col-12">
+      <input
+        type="number"
+        class="form-control"
+        id="inputPhone"
+        placeholder="Phone Number"
+        name="phoneNumber"
+        [(ngModel)]="user.phoneNumber"
+        />
+    </div>
+    <div class="col-md-12">
+      <input
+        type="password"
+        class="form-control"
+        id="inputPassword4"
+        placeholder="New Password"
+      name="password"
+        [(ngModel)]="user.password"
+      />
+    </div>
+    <div class="col-md-12">
+      <input
+        type="password"
+        class="form-control"
+        id="inputConfirmPassword"
+        placeholder="Confirm Password"
+        name="confirmPassword"
+        [(ngModel)]="user.confirmPassword"
+      />
+    </div>
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+  </form>
+</div>
