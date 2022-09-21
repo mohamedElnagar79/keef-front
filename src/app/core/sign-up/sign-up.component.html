@@ -1,8 +1,9 @@
+<div class="top-cont"></div>
 <div class="sign-up">
-  <div class="text-center col-12">
+  <!-- <div class="text-center col-12">
     <h2>Sign Up Now!</h2>
     <hr />
-  </div>
+  </div> -->
   <form class="row g-3" (submit)="save()">
     <div class="col-md-6">
       <input
@@ -42,7 +43,7 @@
         placeholder="Phone Number"
         name="phoneNumber"
         [(ngModel)]="user.phoneNumber"
-        />
+      />
     </div>
     <div class="col-md-12">
       <input
@@ -50,7 +51,7 @@
         class="form-control"
         id="inputPassword4"
         placeholder="New Password"
-      name="password"
+        name="password"
         [(ngModel)]="user.password"
       />
     </div>
@@ -65,7 +66,12 @@
       />
     </div>
     <div class="col-12 text-center">
-      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <button type="submit" class="btn btn-dark">Sign Up</button>
     </div>
   </form>
+  <div class="row foot-button">
+    <div class="col-md-6 text-center"><button class="btn" type="button">Sign Up</button></div>
+    <div class="col-md-6 text-center"><button class="btn" type="button">Log In</button></div>
+  </div>
 </div>
+<div class="bottom-cont"></div>
