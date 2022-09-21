@@ -1,24 +1,96 @@
-.sign-up {
-  width: 30vw;
-  // margin: 5rem auto;
-  margin-left: 65vw;
-  // border: 1px solid rgb(183, 180, 180);
-  padding: 1rem;
-  border-radius: 1rem;
-  // background-color:#e1668d;
+$fontColor: #4f6983;
+$mainColor: #504dc4;
+$mainColorDark: #1e3148;
+$accent: #e1668d;
+$accentLight: #ff8149;
+input {
+  border: none;
+  border-bottom: 1px solid rgb(232, 227, 227);
+  margin-bottom:1rem ;
 }
-.top-cont {
-  height: 15vh;
+button {
+  width: 100%;
+  background: $accent !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+.signUp-page {
+  min-height: 100%;
+  margin: 0;
+  // padding: 4rem 0;
+  //   background-image: linear-gradient(90deg, #fe62778a, #FE6277);
+  background: url("../../../assets/images/slide1.jpeg") center center/cover
+    no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  background-color: $accent;
+  .contain-form {
+    text-align: center;
+    width: 60vw;
+    margin: 5px auto;
+    padding: 3rem 0;
+    border-radius: 10px;
+  }
+
+  .signUp-form {
+    background: #fff;
+    // padding: 40px 15px;
+    padding: 1rem;
+  }
+  .head {
+    margin: 15px 0 40px 0px;
+  }
+  .btn {
+    margin-top: 20px;
+  }
+  .copy {
+    font-size: 13px;
+    margin-top: 30px;
+  }
+  .img {
+    padding: 20% 15%;
+    background: url("../../../assets/images/slide1.jpeg") center center/cover
+      no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+  // .img::before {
+  //   background-color: rgba(196, 77, 150, 0.4);
+  //   content: " ";
+  //   height: 100%;
+  //   position: absolute;
+  //   width: 100%;
+  // }
+}
+.signUp-page::before {
   background-color: #e1668d;
+  // content: " ";
+  height: 100%;
+  // position: absolute;
+  width: 100%;
 }
-.bottom-cont {
-  height: 15vh;
-  background-color: #e1668d;
+/* Small Devices, Tablets */
+@media only screen and (max-width: 767px) {
+  .signUp-page {
+    .contain-form {
+      width: 90%;
+    }
+  }
 }
-.foot-button{
-  margin-top: 1rem;
-  border-top: 1px solid rgb(230, 227, 222);
-  div{
-    text-decoration: underline;
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 575px) {
+  .signUp-page {
+    .signUp-form {
+      order: 2;
+    }
+    .img {
+      order: 1;
+      padding: 2% 0;
+    }
+    .contain-form {
+      width: 50%;
+    }
   }
 }

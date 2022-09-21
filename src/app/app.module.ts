@@ -7,6 +7,7 @@ import { HomeModule } from './components/home/home.module';
 import { CoreModule } from './core/core.module';
 import { SignUpModule } from './core/sign-up/sign-up.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SignInModule } from './core/sign-in/sign-in.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     CoreModule,
+    SignInModule
   ],
   providers: [],
   bootstrap: [AppComponent],

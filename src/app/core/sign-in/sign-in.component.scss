@@ -1,8 +1,13 @@
 $fontColor: #4f6983;
 $mainColor: #504dc4;
 $mainColorDark: #1e3148;
-$accent: #fe6277;
+$accent: #e1668d;
 $accentLight: #ff8149;
+input {
+  border: none;
+  border-bottom: 1px solid rgb(232, 227, 227);
+  margin-bottom:1rem ;
+}
 
 button {
   width: 100%;
@@ -22,7 +27,7 @@ button {
   height: 100vh;
   width: 100%;
 
-  background-color: rgba(196, 77, 150, 0.4);
+  background-color: $accent;
   .contain-form {
     text-align: center;
     width: 750px;
@@ -61,7 +66,7 @@ button {
   // }
 }
 .login-page::before {
-  background-color: rgba(255, 119, 203, 0.4);
+  background-color:#e1668d;
   // content: " ";
   height: 100%;
   position: absolute;
@@ -89,4 +94,13 @@ button {
       width: 50%;
     }
   }
+}
+.signUpBtn{
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid $accent;
+}
+.signUpBtn:hover{
+  background-color: $accent !important;
+  color: #fff !important;
 }

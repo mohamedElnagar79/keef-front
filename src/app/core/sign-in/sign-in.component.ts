@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { Login } from 'src/app/_models/login';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-
-  constructor() { }
+login:Login=new Login("","")
+  constructor(private elogin:LoginService,private ac:ActivatedRoute,private root:Router) { }
 
   ngOnInit(): void {
   }
+  loginSubmit(){
+    // this.root.navigateByUrl("/students")
+    this.elogin.addservice(this.login).subscribe(a=>{
 
+      console.log("=====>" ,a);
+      })
+  }
 }
