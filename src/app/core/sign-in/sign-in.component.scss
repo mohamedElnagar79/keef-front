@@ -1,0 +1,92 @@
+$fontColor: #4f6983;
+$mainColor: #504dc4;
+$mainColorDark: #1e3148;
+$accent: #fe6277;
+$accentLight: #ff8149;
+
+button {
+  width: 100%;
+  background: $accent !important;
+  color: #fff !important;
+  font-size: 20px !important;
+}
+.login-page {
+  min-height: 100%;
+  margin: 0;
+  // padding: 4rem 0;
+  //   background-image: linear-gradient(90deg, #fe62778a, #FE6277);
+  background: url("../../../assets/images/slide1.jpeg") center center/cover
+    no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+
+  background-color: rgba(196, 77, 150, 0.4);
+  .contain-form {
+    text-align: center;
+    width: 750px;
+    margin: 5px auto;
+    padding: 3rem 0;
+    border-radius: 10px;
+  }
+
+  .login-form {
+    background: #fff;
+    padding: 40px 15px;
+  }
+  .head {
+    margin: 15px 0 40px 0px;
+  }
+  .btn {
+    margin-top: 20px;
+  }
+  .copy {
+    font-size: 13px;
+    margin-top: 30px;
+  }
+  .img {
+    padding: 20% 15%;
+    background: url("../../../assets/images/slide1.jpeg") center center/cover
+      no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+  // .img::before {
+  //   background-color: rgba(196, 77, 150, 0.4);
+  //   content: " ";
+  //   height: 100%;
+  //   position: absolute;
+  //   width: 100%;
+  // }
+}
+.login-page::before {
+  background-color: rgba(255, 119, 203, 0.4);
+  // content: " ";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width: 767px) {
+  .login-page {
+    .contain-form {
+      width: 90%;
+    }
+  }
+}
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 575px) {
+  .login-page {
+    .login-form {
+      order: 2;
+    }
+    .img {
+      order: 1;
+      padding: 2% 0;
+    }
+    .contain-form {
+      width: 50%;
+    }
+  }
+}
