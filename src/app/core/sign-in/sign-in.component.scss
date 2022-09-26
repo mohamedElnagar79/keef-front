@@ -6,7 +6,7 @@ $accentLight: #ff8149;
 input {
   border: none;
   border-bottom: 1px solid rgb(232, 227, 227);
-  margin-bottom:1rem ;
+  margin-bottom: 1rem;
 }
 
 button {
@@ -51,56 +51,58 @@ button {
     margin-top: 30px;
   }
   .img {
-    padding: 20% 15%;
+    padding: 20% 0;
     background: url("../../../assets/images/slide1.jpeg") center center/cover
       no-repeat;
     position: relative;
     overflow: hidden;
   }
-  // .img::before {
-  //   background-color: rgba(196, 77, 150, 0.4);
-  //   content: " ";
-  //   height: 100%;
-  //   position: absolute;
-  //   width: 100%;
-  // }
+  .img img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+  }
 }
-.login-page::before {
-  background-color:#e1668d;
-  // content: " ";
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
+// .login-page::before {
+//   background-color: #e1668d;
+//   // content: " ";
+//   height: 100%;
+//   position: absolute;
+//   width: 100%;
+// }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
   .login-page {
     .contain-form {
       width: 90%;
     }
+    .img {
+      padding: 20% 0;
+    }
   }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 575px) {
   .login-page {
+    height: 100%;
     .login-form {
       order: 2;
     }
     .img {
       order: 1;
-      padding: 2% 0;
+      padding: 20% 0;
     }
     .contain-form {
-      width: 50%;
+      width: 75%;
     }
   }
 }
-.signUpBtn{
+.signUpBtn {
   background-color: white !important;
   color: black !important;
   border: 1px solid $accent;
 }
-.signUpBtn:hover{
+.signUpBtn:hover {
   background-color: $accent !important;
   color: #fff !important;
 }

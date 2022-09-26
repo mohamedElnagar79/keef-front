@@ -23,24 +23,24 @@ button {
     center/cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   // background-color: $accent;
   .contain-form {
     text-align: center;
-    width: 60vw;
+    width: 65vw;
     margin: 5px auto;
     padding: 3rem 0;
     border-radius: 10px;
   }
 
   .signUp-form {
-    background: #fff;
+    background: rgb(209, 209, 209);
     // box-shadow: inset $accent 50px 50px 50px 50px;
     // padding: 40px 15px;
     border: 1px solid rgb(206, 204, 200);
     margin: 1px auto;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     border-radius: 1rem;
   }
   .head {
@@ -75,17 +75,24 @@ button {
   // position: absolute;
   width: 100%;
 }
-/* Small Devices, Tablets */
-@media only screen and (max-width: 767px) {
-  .signUp-page {
-    .contain-form {
-      width: 90%;
+
+@media only screen and (max-width: 991px) {
+  .contain-form {
+    width: 75% !important;
+  }
+  /* Small Devices, Tablets */
+  @media only screen and (max-width: 767px) {
+    .signUp-page {
+      .contain-form {
+        width: 90% !important;
+      }
     }
   }
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 575px) {
   .signUp-page {
+    height: 100%;
     .signUp-form {
       order: 2;
     }
@@ -94,7 +101,7 @@ button {
       padding: 2% 0;
     }
     .contain-form {
-      width: 50%;
+      width: 70% !important;
     }
   }
 }
