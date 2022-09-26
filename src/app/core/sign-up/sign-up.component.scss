@@ -6,7 +6,7 @@ $accentLight: #ff8149;
 input {
   border: none;
   border-bottom: 1px solid rgb(232, 227, 227);
-  margin-bottom:1rem ;
+  margin-bottom: 1rem;
 }
 button {
   width: 100%;
@@ -19,13 +19,13 @@ button {
   margin: 0;
   // padding: 4rem 0;
   //   background-image: linear-gradient(90deg, #fe62778a, #FE6277);
-  background: url("../../../assets/images/slide1.jpeg") center center/cover
-    no-repeat;
+  background: url("../../../assets/images/kefBackground.jpeg") center
+    center/cover no-repeat;
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-  background-color: $accent;
+  // background-color: $accent;
   .contain-form {
     text-align: center;
     width: 60vw;
@@ -36,8 +36,12 @@ button {
 
   .signUp-form {
     background: #fff;
+    // box-shadow: inset $accent 50px 50px 50px 50px;
     // padding: 40px 15px;
+    border: 1px solid rgb(206, 204, 200);
+    margin: 1px auto;
     padding: 1rem;
+    border-radius: 1rem;
   }
   .head {
     margin: 15px 0 40px 0px;
