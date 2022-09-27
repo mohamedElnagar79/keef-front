@@ -30,8 +30,11 @@ button {
     text-align: center;
     width: 65vw;
     margin: 5px auto;
-    padding: 3rem 0;
+    padding: 1rem 0;
     border-radius: 10px;
+  }
+  p {
+    text-align: left;
   }
 
   .signUp-form {
@@ -40,11 +43,14 @@ button {
     // padding: 40px 15px;
     border: 1px solid rgb(206, 204, 200);
     margin: 1px auto;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
     border-radius: 1rem;
   }
   .head {
-    margin: 15px 0 40px 0px;
+    margin: 15px 0;
+    p {
+      text-align: center;
+    }
   }
   .btn {
     margin-top: 20px;
@@ -52,6 +58,9 @@ button {
   .copy {
     font-size: 13px;
     margin-top: 30px;
+    p {
+      text-align: center;
+    }
   }
   .img {
     padding: 20% 15%;
@@ -104,4 +113,8 @@ button {
       width: 70% !important;
     }
   }
+}
+// validations
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
 }

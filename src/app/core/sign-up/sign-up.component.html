@@ -3,7 +3,12 @@
     <!-- <div class="col-sm-6 img">
       <img src="../../../assets/images/logo.png" height="120" alt="kef" />
     </div> -->
-    <form class="col-sm-6 signUp-form row" name="signUpForm" (submit)="save()">
+    <form
+      class="col-sm-6 signUp-form row"
+      name="signUpForm"
+      (submit)="save()"
+      #f="ngForm"
+    >
       <div class="head">
         <h2 class="title">Sign Up</h2>
         <p>Welcome To Kef, Sign Up Now!<br /></p>
@@ -16,7 +21,14 @@
           placeholder="First Name"
           name="firstName"
           [(ngModel)]="user.firstName"
+          required
+          minlength="5"
+          maxlength="25"
+          #firstName="ngModel"
         />
+        <p *ngIf="!firstName.valid && firstName.touched" class="text-danger">
+          first Name is required
+        </p>
       </div>
       <div class="col-md-6">
         <input
@@ -26,7 +38,14 @@
           placeholder="Last Name"
           name="lastName"
           [(ngModel)]="user.lastName"
+          required
+          minlength="5"
+          maxlength="25"
+          #lastName="ngModel"
         />
+        <p *ngIf="!lastName.valid && lastName.touched" class="text-danger">
+          Last Name is required
+        </p>
       </div>
       <div class="col-md-12">
         <input
@@ -36,17 +55,30 @@
           placeholder="Email"
           name="email"
           [(ngModel)]="user.email"
+          required
+          email
+          #validEmail="ngModel"
         />
+        <p *ngIf="!validEmail.valid && validEmail.touched" class="text-danger">
+          please enter avalid email
+        </p>
       </div>
       <div class="col-12">
         <input
-          type="number"
+          type="text"
           class="form-control"
           id="inputPhone"
           placeholder="Phone Number"
           name="phoneNumber"
+          minlength="11"
+          maxlength="11"
+          required
+          #validPhone="ngModel"
           [(ngModel)]="user.phoneNumber"
         />
+        <p *ngIf="!validPhone.valid && validPhone.touched" class="text-danger">
+          please enter avalid phone
+        </p>
       </div>
       <div class="col-md-12">
         <input
@@ -69,12 +101,17 @@
         />
       </div>
       <div class="form-group">
-        <button class="btn" type="submit" routerLink="/signIn">Sign Up</button>
+        <button class="btn" type="submit" [disabled]="!f.valid">Sign Up</button>
       </div>
       <div class="copy">
         <p>
           2022 @
-          <img src="../../../assets/images/logo.png" height="20px"width="40px" alt="kef" />
+          <img
+            src="../../../assets/images/logo.png"
+            height="20px"
+            width="40px"
+            alt="kef"
+          />
         </p>
       </div>
     </form>
