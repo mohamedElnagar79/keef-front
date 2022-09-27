@@ -21,7 +21,6 @@ export class SignInComponent implements OnInit {
   loginSubmit() {
     // this.root.navigateByUrl("/students")
     this.elogin.addservice(this.login).subscribe((a) => {
-      this.router.navigateByUrl('signUp');
       console.log('=====>', a);
     });
   }
