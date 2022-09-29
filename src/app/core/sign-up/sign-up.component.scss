@@ -118,3 +118,7 @@ button {
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+#inputPhone::-webkit-outer-spin-button,
+#inputPhone::-webkit-inner-spin-button {
+  display: none;
+}

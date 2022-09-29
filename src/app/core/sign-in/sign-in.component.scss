@@ -32,7 +32,7 @@ button {
     text-align: center;
     width: 750px;
     margin: 5px auto;
-    padding: 3rem 0;
+    padding: 2.5rem 0;
     border-radius: 10px;
   }
 
@@ -41,7 +41,7 @@ button {
     padding: 40px 15px;
   }
   .head {
-    margin: 15px 0 40px 0px;
+    margin: 15px 0 30px 0px;
   }
   .btn {
     margin-top: 20px;
@@ -105,4 +105,12 @@ button {
 .signUpBtn:hover {
   background-color: $accent !important;
   color: #fff !important;
+}
+
+// validations
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.form-group p {
+  text-align: left;
 }

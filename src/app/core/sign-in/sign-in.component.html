@@ -3,7 +3,12 @@
     <div class="col-sm-6 img">
       <img src="../../../assets/images/logo.png" height="120" alt="kef" />
     </div>
-    <form class="col-sm-6 login-form" (submit)="loginSubmit()" name="loginForm">
+    <form
+      class="col-sm-6 login-form"
+      (submit)="loginSubmit()"
+      name="loginForm"
+      #f="ngForm"
+    >
       <div class="head">
         <h2 class="title">Sign In</h2>
         <p>Welcome Back, Sign in <br /></p>
@@ -16,7 +21,22 @@
           class="form-control"
           name="email"
           [(ngModel)]="login.email"
+          required
+          email
+          #validEmail="ngModel"
         />
+        <p
+          *ngIf="validEmail.errors?.['required']&& validEmail.touched"
+          class="text-danger"
+        >
+          email is required
+        </p>
+        <p
+          *ngIf="validEmail.errors?.['email']&& validEmail.touched"
+          class="text-danger"
+        >
+          please enter avalid email
+        </p>
       </div>
       <div class="form-group">
         <input
@@ -26,12 +46,26 @@
           class="form-control"
           name="password"
           [(ngModel)]="login.password"
+          required
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
+          #password="ngModel"
         />
+        <p
+          *ngIf="password.errors?.['required'] && password.touched"
+          class="text-danger"
+        >
+          password is required
+        </p>
+        <p
+          *ngIf="password.errors?.['pattern'] && password.touched"
+          class="text-danger"
+        >
+          password must have at least 1 capitla char, 1 small char, numbers, and
+          Special characters
+        </p>
       </div>
       <div class="form-group">
-        <button class="btn" type="submit">
-          Login
-        </button>
+        <button class="btn" type="submit" [disabled]="!f.valid">Login</button>
         <button class="btn signUpBtn" type="button" routerLink="/signUp">
           Sign Up
         </button>
