@@ -1,1 +1,198 @@
-<p>admin-sign-up works!</p>
+<section class="signUp-page">
+  <div class="row contain-form">
+    <!-- <div class="col-sm-6 img">
+        <img src="../../../assets/images/logo.png" height="120" alt="kef" />
+      </div> -->
+    <form
+      class="col-sm-6 signUp-form row"
+      name="signUpForm"
+      (submit)="save()"
+      #f="ngForm"
+    >
+      <div class="head">
+        <h2 class="title">Sign Up</h2>
+        <p>Sign Up As admin Now<br /></p>
+      </div>
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="inputFirstName"
+          placeholder="First Name"
+          name="firsttName"
+          [(ngModel)]="admin.firstName"
+          #firstName="ngModel"
+          required
+          minlength="2"
+          maxlength="30"
+        />
+        <p
+          *ngIf="firstName.errors?.['required'] && firstName.touched"
+          class="text-danger"
+        >
+          first Name is required
+        </p>
+        <p
+          *ngIf="firstName.errors?.['minlength'] && firstName.touched"
+          class="text-danger"
+        >
+          first Name must at least 5 characters
+        </p>
+      </div>
+      <div class="col-md-6">
+        <input
+          type="text"
+          class="form-control"
+          id="inputLastName"
+          placeholder="Last Name"
+          name="lastName"
+          [(ngModel)]="admin.lastName"
+          required
+          minlength="2"
+          maxlength="30"
+          #lastName="ngModel"
+        />
+        <p
+          *ngIf="lastName.errors?.['required'] && lastName.touched"
+          class="text-danger"
+        >
+          Last Name is required
+        </p>
+        <p
+          *ngIf="lastName.errors?.['minlength'] && lastName.touched"
+          class="text-danger"
+        >
+          Last Name must at least 2 characters
+        </p>
+      </div>
+      <div class="col-md-12">
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="Email"
+          name="email"
+          [(ngModel)]="admin.email"
+          required
+          email
+          #validEmail="ngModel"
+        />
+        <p
+          *ngIf="validEmail.errors?.['required']&& validEmail.touched"
+          class="text-danger"
+        >
+          email is required
+        </p>
+        <p
+          *ngIf="validEmail.errors?.['email']&& validEmail.touched"
+          class="text-danger"
+        >
+          please enter avalid email
+        </p>
+      </div>
+      <div class="col-12">
+        <input
+          type="number"
+          class="form-control"
+          id="inputPhone"
+          placeholder="Phone Number"
+          name="phoneNumber"
+          required
+          #validPhone="ngModel"
+          [(ngModel)]="admin.phoneNumber"
+        />
+        <!-- pattern="(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})" -->
+
+        <p
+          *ngIf="validPhone.errors?.['required'] && validPhone.touched"
+          class="text-danger"
+        >
+          phone number is required
+        </p>
+        <p
+          *ngIf="validPhone.errors?.['pattern'] && validPhone.touched"
+          class="text-danger"
+        >
+          invalid phone number
+        </p>
+        <p
+          *ngIf="validPhone.errors?.['min'] && validPhone.touched"
+          class="text-danger"
+        >
+          phone number must at least 10 numbers
+        </p>
+
+        <p
+          *ngIf="validPhone.errors?.['max'] && validPhone.touched"
+          class="text-danger"
+        >
+          phone number cant be greater than 10 numbers
+        </p>
+      </div>
+      <div class="col-md-12">
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="New Password"
+          name="password"
+          [(ngModel)]="admin.password"
+          required
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
+          #password="ngModel"
+        />
+      </div>
+      <p
+        *ngIf="password.errors?.['required'] && password.touched"
+        class="text-danger"
+      >
+        password is required
+      </p>
+      <p
+        *ngIf="password.errors?.['pattern'] && password.touched"
+        class="text-danger"
+      >
+        password must have at least 1 capitla char, 1 small char, numbers, and
+        Special characters
+      </p>
+      <div class="col-md-12">
+        <input
+          type="password"
+          class="form-control"
+          id="inputConfirmPassword"
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          required
+          [(ngModel)]="admin.confirmPassword"
+          #confirmPassword="ngModel"
+        />
+      </div>
+      <p
+        *ngIf="confirmPassword.errors?.['required']&&confirmPassword.touched"
+        class="text-danger"
+      >
+        confirm password is required
+      </p>
+      <p *ngIf="confirmPassword.value !== password.value" class="text-danger">
+        password does not match -->
+        <!-- </p>  -->
+      </p>
+
+      <div class="form-group">
+        <button class="btn" type="submit" [disabled]="!f.valid">Sign Up</button>
+      </div>
+      <div class="copy">
+        <p>
+          2022 @
+          <img
+            src="../../../assets/images/logo.png"
+            height="20px"
+            width="40px"
+            alt="kef"
+          />
+        </p>
+      </div>
+      <!-- </div> -->
+    </form>
+  </div>
+</section>
