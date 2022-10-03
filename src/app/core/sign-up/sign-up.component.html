@@ -36,7 +36,7 @@
           *ngIf="firstName.errors?.['minlength'] && firstName.touched"
           class="text-danger"
         >
-          first Name must at least 5 characters
+          first Name must at least 2 characters
         </p>
       </div>
       <div class="col-md-6">
@@ -65,7 +65,7 @@
           Last Name must at least 2 characters
         </p>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-6">
         <input
           type="email"
           class="form-control"
@@ -90,7 +90,7 @@
           please enter avalid email
         </p>
       </div>
-      <div class="col-12">
+      <div class="col-md-6">
         <input
           type="number"
           class="form-control"
@@ -127,20 +127,20 @@
           pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
           #password="ngModel"
         />
+        <p
+          *ngIf="password.errors?.['required'] && password.touched"
+          class="text-danger"
+        >
+          password is required
+        </p>
+        <p
+          *ngIf="password.errors?.['pattern'] && password.touched"
+          class="text-danger"
+        >
+          enter strong password
+        </p>
       </div>
-      <p
-        *ngIf="password.errors?.['required'] && password.touched"
-        class="text-danger"
-      >
-        password is required
-      </p>
-      <p
-        *ngIf="password.errors?.['pattern'] && password.touched"
-        class="text-danger"
-      >
-        password must have at least 1 capitla char, 1 small char, numbers, and
-        Special characters
-      </p>
+
       <div class="col-md-12">
         <input
           type="password"
@@ -152,16 +152,16 @@
           #confirmPassword="ngModel"
           [(ngModel)]="user.confirmPassword"
         />
+        <p
+          *ngIf="
+            confirmPassword.value !== password.value ||
+            (confirmPassword.errors && confirmPassword.touched)
+          "
+          class="text-danger"
+        >
+          password does not match
+        </p>
       </div>
-      <p
-        *ngIf="confirmPassword.errors?.['required']&&confirmPassword.touched"
-        class="text-danger"
-      >
-        confirm password is required
-      </p>
-      <p *ngIf="confirmPassword.value !== password.value" class="text-danger">
-        password does not match
-      </p>
       <div class="form-group">
         <button class="btn" type="submit" [disabled]="!f.valid">Sign Up</button>
       </div>

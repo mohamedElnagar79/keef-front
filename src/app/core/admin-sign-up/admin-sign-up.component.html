@@ -1,8 +1,5 @@
 <section class="signUp-page">
   <div class="row contain-form">
-    <!-- <div class="col-sm-6 img">
-        <img src="../../../assets/images/logo.png" height="120" alt="kef" />
-      </div> -->
     <form
       class="col-sm-6 signUp-form row"
       name="signUpForm"
@@ -36,7 +33,7 @@
           *ngIf="firstName.errors?.['minlength'] && firstName.touched"
           class="text-danger"
         >
-          first Name must at least 5 characters
+          first Name must at least 2 characters
         </p>
       </div>
       <div class="col-md-6">
@@ -167,14 +164,13 @@
         />
       </div>
       <p
-        *ngIf="confirmPassword.errors?.['required']&&confirmPassword.touched"
+        *ngIf="
+          confirmPassword.value !== password.value ||
+          (confirmPassword.errors && confirmPassword.touched)
+        "
         class="text-danger"
       >
-        confirm password is required
-      </p>
-      <p *ngIf="confirmPassword.value !== password.value" class="text-danger">
-        password does not match -->
-        <!-- </p>  -->
+        password does not match
       </p>
 
       <div class="form-group">

@@ -1,63 +1,59 @@
-$fontColor: #4f6983;
-$mainColor: #504dc4;
-$mainColorDark: #1e3148;
-$accent: #e1668d;
-$accentLight: #ff8149;
+$primaryColor: #e1668d;
+$borderColor: #e0dfdf;
 input {
   border: none;
   border-bottom: 1px solid rgb(232, 227, 227);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
 }
 button {
   width: 100%;
-  background: $accent !important;
+  background: $primaryColor !important;
   color: #fff !important;
   font-size: 20px !important;
 }
 .signUp-page {
   min-height: 100%;
   margin: 0;
-  // padding: 4rem 0;
-  //   background-image: linear-gradient(90deg, #fe62778a, #FE6277);
-  background: url("../../../assets/images/kefBackground.jpeg") center
-    center/cover no-repeat;
+  background: url("../../../assets/images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
-  // background-color: $accent;
+  padding: 2rem;
   .contain-form {
     text-align: center;
-    width: 65vw;
-    margin: 5px auto;
+    width: 70%;
+    margin: 0 auto;
     padding: 1rem 0;
     border-radius: 10px;
   }
   p {
     text-align: left;
+    margin-top: 5px;
+    font-size: 15px;
   }
 
   .signUp-form {
-    background: rgb(209, 209, 209);
-    // box-shadow: inset $accent 50px 50px 50px 50px;
-    // padding: 40px 15px;
+    background: linear-gradient(45deg, $borderColor, rgb(179, 176, 176));
+    // box-shadow: 5px 5px 15px $borderColor, -5px -5px 15px $borderColor;
     border: 1px solid rgb(206, 204, 200);
     margin: 1px auto;
     padding: 0.5rem;
     border-radius: 1rem;
   }
   .head {
-    margin: 15px 0;
+    margin: 2px 0;
     p {
       text-align: center;
     }
   }
   .btn {
-    margin-top: 20px;
+    margin-top: 1rem;
   }
   .copy {
     font-size: 13px;
-    margin-top: 30px;
+    margin-top: 20px;
     p {
       text-align: center;
     }
@@ -69,25 +65,11 @@ button {
     position: relative;
     overflow: hidden;
   }
-  // .img::before {
-  //   background-color: rgba(196, 77, 150, 0.4);
-  //   content: " ";
-  //   height: 100%;
-  //   position: absolute;
-  //   width: 100%;
-  // }
-}
-.signUp-page::before {
-  background-color: #e1668d;
-  // content: " ";
-  height: 100%;
-  // position: absolute;
-  width: 100%;
 }
 
 @media only screen and (max-width: 991px) {
   .contain-form {
-    width: 75% !important;
+    width: 90% !important;
   }
   /* Small Devices, Tablets */
   @media only screen and (max-width: 767px) {
@@ -110,7 +92,7 @@ button {
       padding: 2% 0;
     }
     .contain-form {
-      width: 70% !important;
+      width: 85% !important;
     }
   }
 }

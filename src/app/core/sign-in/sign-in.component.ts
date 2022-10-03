@@ -27,10 +27,9 @@ export class SignInComponent implements OnInit {
         (this.loginFlag = false), this.router.navigateByUrl('/home');
       },
       (e) => {
+        throw new Error('www');
         console.log('error=====>', e.error.data);
         this.loginFlag = true;
-        this.login.email = '';
-        this.login.password = '';
       }
     );
   }
