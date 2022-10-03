@@ -47,7 +47,6 @@
           name="password"
           [(ngModel)]="login.password"
           required
-          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
           #password="ngModel"
         />
         <p
@@ -56,19 +55,15 @@
         >
           password is required
         </p>
-        <p
-          *ngIf="password.errors?.['pattern'] && password.touched"
-          class="text-danger"
-        >
-          password must have at least 1 capitla char, 1 small char, numbers, and
-          Special characters
-        </p>
       </div>
       <div class="form-group">
         <button class="btn" type="submit" [disabled]="!f.valid">Login</button>
         <button class="btn signUpBtn" type="button" routerLink="/signUp">
           Sign Up
         </button>
+        <p class="text-danger text-center mt-4" *ngIf="loginFlag">
+          invalid Email or Password
+        </p>
       </div>
       <div class="copy">
         <p>2022 @ Kef</p>
