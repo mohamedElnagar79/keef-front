@@ -1,0 +1,9 @@
+<p>products-card works!</p>
+<div *ngFor="let product of allProducts">
+  <h1>{{ product.name }}</h1>
+  <h1>{{ product.price }}</h1>
+
+  <div *ngFor="let info of product.productInfoId; let i = index">
+    <img src="{{ info.images[i] }}" />
+  </div>
+</div>
