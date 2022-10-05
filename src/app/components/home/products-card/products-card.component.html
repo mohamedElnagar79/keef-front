@@ -1,9 +1,25 @@
-<p>products-card works!</p>
-<div *ngFor="let product of allProducts">
+<!-- <p>products-card works!</p> -->
+<!-- <div *ngFor="let product of allProducts">
   <h1>{{ product.name }}</h1>
-  <h1>{{ product.price }}</h1>
 
   <div *ngFor="let info of product.productInfoId; let i = index">
-    <img src="{{ info.images[i] }}" />
+
+    <div *ngFor="let image of product.productInfoId[i].images">
+      <img src="{{ image }}" alt="" />
+    </div>
   </div>
+  <h1>{{ product.price }}</h1>
+</div> -->
+<div class="card-group main-product">
+<div class="card" style="width: 18rem" *ngFor="let product of allProducts">
+  <div *ngFor="let info of product.productInfoId; let i = index">
+    <div *ngFor="let image of product.productInfoId[i].images">
+      <img src="{{ image }}" class="card-img-top" alt="..." />
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{ product.name }}</p>
+    <p class="card-text">{{ product.price }}</p>
+  </div>
+</div>
 </div>
