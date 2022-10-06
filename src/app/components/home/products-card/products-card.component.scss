@@ -6,7 +6,6 @@ img {
   object-fit: cover;
   // margin-bottom: 1rem;
   //   display: inline-block;
-
 }
 
 .main-product {
@@ -15,39 +14,44 @@ img {
 }
 .card {
   margin: 1rem auto;
-// width: 90%;
   height: 420px !important;
   border: none;
-  box-shadow: 1px 1px 3px $primaryColor, -1px -1px 3px $primaryColor;
+  box-shadow: 1px 1px 3px #e1668d, -1px -1px 3px #e1668d;
   position: relative;
   overflow: hidden;
+  width: 22%;
+}
+.card:hover {
+  transform: scale(1.1);
+  transition: ease-in-out 1s;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #e1668d, -2px -2px 5px #e1668d;
 }
 .price {
-  background-color:$primaryColor;
-  // border:1px solid $primaryColor ;
-  // color: black;
-  color: black;
-  font-size: bold;
-  padding: 5px 3px 0px 20px;
-  border-radius: 2px 5px 5px 10px;
+  background-color: #e1668d;
+  color: #fff;
+  font-weight: 700;
+  padding: 2px 0px 0px 0px;
+  border-radius: 5px 5px 5px 15px;
+  text-align: center;
+  box-shadow: 1px 1px 2px #fff;
 }
-.product-name{
+.product-name {
   font-weight: bold;
-  padding-top:5px ;
+  padding-top: 5px;
   color: white;
-
 }
-.card-body{
+.card-body {
   position: absolute;
-  left:0;
+  left: 0;
   bottom: 0;
-  width:100%;
+  width: 100%;
   transform: translateY(100%);
   // color: rgb(33, 39, 43);
   // background-color: ;
   box-shadow: inset;
 }
-.card:hover .card-body{
+.card:hover .card-body {
   transform: translateY(0%);
   // cursor: pointer;
   background-color: rgb(141, 140, 140);
