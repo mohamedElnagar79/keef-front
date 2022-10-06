@@ -16,11 +16,11 @@ button {
   min-height: 100%;
   margin: 0;
   background: url("../../../assets/images/background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: contain;
+  background-repeat: repeat;
   height: 100%;
   width: 100%;
-  padding: 4rem;
+  padding: 4.8rem;
   .contain-form {
     text-align: center;
     width: 70%;
