@@ -29,6 +29,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./core/sign-in/sign-in.module').then((res) => res.SignInModule),
   },
+  {
+    path: 'productInfo/:id',
+    loadChildren: () =>
+      import('./components/products/products.module').then(
+        (res) => res.ProductsModule
+      ),
+  },
 ];
 
 @NgModule({

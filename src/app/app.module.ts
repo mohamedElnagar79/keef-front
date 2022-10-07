@@ -9,6 +9,7 @@ import { SignUpModule } from './core/sign-up/sign-up.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SignInModule } from './core/sign-in/sign-in.module';
 import { AdminSignUpModule } from './core/admin-sign-up/admin-sign-up.module';
+import { ProductsModule } from './components/products/products.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { AdminSignUpModule } from './core/admin-sign-up/admin-sign-up.module';
     CoreModule,
     SignInModule,
     AdminSignUpModule,
+    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,9 +6,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductsService {
-  url: string = ' http://localhost:8081/product';
+  url: string = ' http://localhost:8081/product/';
   constructor(private http: HttpClient) {}
   getProducts() {
     return this.http.get<Products[]>(this.url);
+  }
+  getProductById(id: number) {
+    return this.http.get<Products>(this.url + `${id}`);
   }
 }

@@ -4,6 +4,8 @@
     <div
       class="card col-12 col-md-6 col-lg-4"
       *ngFor="let product of allProducts"
+      id="{{ product._id }}"
+      (click)="getProductInfo(product._id)"
     >
       <img src="{{ product.productInfoId[0].images[0] }}" alt="product" />
 

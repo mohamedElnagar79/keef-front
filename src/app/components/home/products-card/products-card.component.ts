@@ -17,12 +17,13 @@ export class ProductsCardComponent implements OnInit {
     private root: Router
   ) {}
 
+  getProductInfo(id: number) {
+    this.router.navigateByUrl(`productInfo/${id}`);
+  }
+
   ngOnInit(): void {
     this.productsSer.getProducts().subscribe((data) => {
       this.allProducts = data;
-      console.log('data', this.allProducts[0]);
-      console.log('===> ', this.allProducts[0].productInfoId[0].images[0]);
-      console.log("info",this.allProducts[0].productInfoId[0].images)
     });
   }
 }
