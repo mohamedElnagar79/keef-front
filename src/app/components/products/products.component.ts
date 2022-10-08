@@ -10,7 +10,7 @@ import { Products } from 'src/app/_models/products';
 })
 export class ProductsComponent implements OnInit {
   productInfo: Products = {
-    _id: 1,
+    _id: 0,
     name: '',
     category: '',
     gender: '',
@@ -26,6 +26,10 @@ export class ProductsComponent implements OnInit {
     public router: Router,
     private root: Router
   ) {}
+
+  getColorItems(colorId: number) {
+    console.log('clicked', colorId);
+  }
 
   ngOnInit(): void {
     this.id = this.ac.snapshot.params['id'];

@@ -1,10 +1,17 @@
 <div class="container pt-5">
   <div class="row">
     <div class="col-md-6">
-      <div class="product-slider">
+      <div
+        class="product-slider"
+        *ngFor="let product of productInfo.productInfoId; let i = index"
+      >
+        <!-- <h1>{{ product.colors }}</h1> -->
+        <!-- <h1 *ngFor="let img of product.images">{{ img }}</h1> -->
         <img
-          src="{{ productInfo.productInfoId[0].images[0] }}"
+          *ngFor="let img of product.images"
+          id="{{ product._id }}"
           alt="{{productInfo.name}"
+          src="{{ img }}"
         />
       </div>
     </div>
@@ -16,6 +23,8 @@
           <button
             *ngFor="let product of productInfo.productInfoId"
             [style.background-color]="product.colors"
+            id="{{ product._id }}"
+            (click)="getColorItems(product._id)"
             class="color-btn"
           ></button>
         </div>
