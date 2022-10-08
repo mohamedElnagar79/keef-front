@@ -1,0 +1,22 @@
+.product-slider img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+.product-Details {
+  text-align: center;
+  .contain-colors {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+    margin: 0 auto;
+
+    .color-btn {
+      padding: 1rem;
+      border: 0;
+      margin: 0.5rem;
+      border-radius: 5px;
+    }
+  }
+}

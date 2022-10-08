@@ -1,5 +1,25 @@
-<p>product info works!</p>
-<h1>{{ productInfo.name }}</h1>
-<h1>{{ productInfo.price }}</h1>
-<h1>{{ productInfo.category }}</h1>
-<h1>Sale :{{ productInfo.sale }}</h1>
+<div class="container pt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-slider">
+        <img
+          src="{{ productInfo.productInfoId[0].images[0] }}"
+          alt="{{productInfo.name}"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="product-Details">
+        <h1>{{ productInfo.name }}</h1>
+        <h4>{{ productInfo.price }}{{ " " }}LE</h4>
+        <div class="contain-colors">
+          <button
+            *ngFor="let product of productInfo.productInfoId"
+            [style.background-color]="product.colors"
+            class="color-btn"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
