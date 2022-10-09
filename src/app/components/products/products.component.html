@@ -2,13 +2,18 @@
 <div class="container pt-5" *ngIf="!loading">
   <div class="row">
     <div class="col-md-6">
-      <div
-        class="product-slider"
-        *ngFor="let product of productInfo.productInfoId; let i = index"
-      >
-        <img
+      <div class="product-slider">
+        <!-- <img
           *ngFor="let img of product.images"
           id="{{ product._id }}"
+          alt="{{productInfo.name}"
+          src="{{ img }}"
+        /> -->
+        <!-- <img alt="{{productInfo.name}" src="{{ product.images[0] }}" /> -->
+
+        <img
+          *ngFor="let img of productByColors.images"
+          id="{{ productByColors._id }}"
           alt="{{productInfo.name}"
           src="{{ img }}"
         />
@@ -17,8 +22,8 @@
     <div class="col-md-6">
       <div class="product-Details">
         <h1>{{ productInfo.name }}</h1>
-
         <h4>{{ productInfo.price }}{{ " " }}LE</h4>
+        <!-- colors -->
         <div class="contain-colors">
           <button
             *ngFor="let product of productInfo.productInfoId"
@@ -28,6 +33,7 @@
             class="color-btn"
           ></button>
         </div>
+        <!-- sizes -->
       </div>
     </div>
   </div>

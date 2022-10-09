@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProductInfoService } from 'src/app/services/productInfo.sevice';
 import { ProductsService } from 'src/app/services/products.service';
+import { ProductInfo } from 'src/app/_models/product-info';
 import { Products } from 'src/app/_models/products';
 
 @Component({
@@ -19,10 +21,22 @@ export class ProductsComponent implements OnInit {
     price: 0,
     productInfoId: [],
   };
+  intialId: number = 0;
+
+  productByColors: ProductInfo = {
+    _id: 0,
+    colors: '',
+    images: [],
+    medium: 0,
+    large: 0,
+    xlarge: 0,
+  };
   id: number = 0;
   loading: boolean = true;
+  // clicked: boolean = false;
   constructor(
     public productInfoSer: ProductsService,
+    public productByColorSer: ProductInfoService,
     private ac: ActivatedRoute,
     public router: Router,
     private root: Router
@@ -30,6 +44,10 @@ export class ProductsComponent implements OnInit {
 
   getColorItems(colorId: number) {
     console.log('clicked', colorId);
+    this.productByColorSer.getProductInfoById(colorId).subscribe((data) => {
+      console.log('product color data====>', data);
+      this.productByColors = data;
+    });
   }
 
   ngOnInit(): void {
@@ -38,6 +56,14 @@ export class ProductsComponent implements OnInit {
       console.log('product info data====>', data);
       this.productInfo = data;
       this.loading = false;
+      this.intialId = data.productInfoId[0]._id;
+      // initial color
+      this.productByColorSer
+        .getProductInfoById(this.intialId)
+        .subscribe((data) => {
+          console.log('product color data====>', data);
+          this.productByColors = data;
+        });
     });
   }
 }
