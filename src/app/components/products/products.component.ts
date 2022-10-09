@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
   };
   id: number = 0;
   loading: boolean = true;
-  // clicked: boolean = false;
+  clicked: boolean = false;
   constructor(
     public productInfoSer: ProductsService,
     public productByColorSer: ProductInfoService,
@@ -41,15 +41,20 @@ export class ProductsComponent implements OnInit {
     public router: Router,
     private root: Router
   ) {}
-
   getColorItems(colorId: number) {
     console.log('clicked', colorId);
+    // console.log("event>>>",e.target as HTMLButtonElement)
+    if(this.clicked)this.clicked=false;
+    else this.clicked=true
     this.productByColorSer.getProductInfoById(colorId).subscribe((data) => {
       console.log('product color data====>', data);
       this.productByColors = data;
     });
   }
-
+  sizeClick(clicked:boolean){
+    if(clicked){clicked=false}
+    else{clicked=true}
+  }
   ngOnInit(): void {
     this.id = this.ac.snapshot.params['id'];
     this.productInfoSer.getProductById(this.id).subscribe((data) => {

@@ -3,14 +3,6 @@
   <div class="row">
     <div class="col-md-6">
       <div class="product-slider">
-        <!-- <img
-          *ngFor="let img of product.images"
-          id="{{ product._id }}"
-          alt="{{productInfo.name}"
-          src="{{ img }}"
-        /> -->
-        <!-- <img alt="{{productInfo.name}" src="{{ product.images[0] }}" /> -->
-
         <img
           *ngFor="let img of productByColors.images"
           id="{{ productByColors._id }}"
@@ -27,13 +19,44 @@
         <div class="contain-colors">
           <button
             *ngFor="let product of productInfo.productInfoId"
+            [ngClass]="{'active' : product._id.active}"
             [style.background-color]="product.colors"
             id="{{ product._id }}"
             (click)="getColorItems(product._id)"
+
             class="color-btn"
+
           ></button>
         </div>
         <!-- sizes -->
+        <div>
+          <button
+            type="button"
+            class="btn sizes"
+            [disabled]="productByColors.medium === 0"
+            [value]="productByColors.medium"
+
+
+          >
+            Medium {{ productByColors.medium }}
+          </button>
+          <button
+            type="button"
+            class="btn sizes"
+            [disabled]="productByColors.large === 0"
+            [value]="productByColors.large"
+          >
+            Large {{ productByColors.large }}
+          </button>
+          <button
+            type="button"
+            class="btn sizes"
+            [disabled]="productByColors.xlarge === 0"
+            [value]="productByColors.xlarge"
+          >
+            XLarge {{ productByColors.xlarge }}
+          </button>
+        </div>
       </div>
     </div>
   </div>
