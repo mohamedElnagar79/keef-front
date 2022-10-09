@@ -1,12 +1,11 @@
-<div class="container pt-5">
+<mat-spinner *ngIf="loading"></mat-spinner>
+<div class="container pt-5" *ngIf="!loading">
   <div class="row">
     <div class="col-md-6">
       <div
         class="product-slider"
         *ngFor="let product of productInfo.productInfoId; let i = index"
       >
-        <!-- <h1>{{ product.colors }}</h1> -->
-        <!-- <h1 *ngFor="let img of product.images">{{ img }}</h1> -->
         <img
           *ngFor="let img of product.images"
           id="{{ product._id }}"
@@ -18,6 +17,7 @@
     <div class="col-md-6">
       <div class="product-Details">
         <h1>{{ productInfo.name }}</h1>
+
         <h4>{{ productInfo.price }}{{ " " }}LE</h4>
         <div class="contain-colors">
           <button

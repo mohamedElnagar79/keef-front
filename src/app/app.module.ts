@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignInModule } from './core/sign-in/sign-in.module';
 import { AdminSignUpModule } from './core/admin-sign-up/admin-sign-up.module';
 import { ProductsModule } from './components/products/products.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { ProductsModule } from './components/products/products.module';
     SignInModule,
     AdminSignUpModule,
     ProductsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

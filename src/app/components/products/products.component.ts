@@ -20,6 +20,7 @@ export class ProductsComponent implements OnInit {
     productInfoId: [],
   };
   id: number = 0;
+  loading: boolean = true;
   constructor(
     public productInfoSer: ProductsService,
     private ac: ActivatedRoute,
@@ -36,6 +37,7 @@ export class ProductsComponent implements OnInit {
     this.productInfoSer.getProductById(this.id).subscribe((data) => {
       console.log('product info data====>', data);
       this.productInfo = data;
+      this.loading = false;
     });
   }
 }

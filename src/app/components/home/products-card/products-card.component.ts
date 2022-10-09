@@ -10,6 +10,7 @@ import { Products } from 'src/app/_models/products';
 })
 export class ProductsCardComponent implements OnInit {
   allProducts: Products[] = [];
+  loading: boolean = true;
   constructor(
     private productsSer: ProductsService,
     private ac: ActivatedRoute,
@@ -24,6 +25,7 @@ export class ProductsCardComponent implements OnInit {
   ngOnInit(): void {
     this.productsSer.getProducts().subscribe((data) => {
       this.allProducts = data;
+      this.loading = false;
     });
   }
 }
