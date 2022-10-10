@@ -19,13 +19,14 @@
         <div class="contain-colors">
           <button
             *ngFor="let product of productInfo.productInfoId"
-            [ngClass]="{'active' : product._id.active}"
+            [ngClass]="{ 'new-color': product.colors === 'white' }"
             [style.background-color]="product.colors"
             id="{{ product._id }}"
             (click)="getColorItems(product._id)"
-
+            [class.activeColors]="isActive(product.colors)"
+            (click)="setActive(product.colors)"
+            type="button"
             class="color-btn"
-
           ></button>
         </div>
         <!-- sizes -->
@@ -35,26 +36,30 @@
             class="btn sizes"
             [disabled]="productByColors.medium === 0"
             [value]="productByColors.medium"
-
-
+            [class.activeSize]="isActiveSize('medium')"
+            (click)="setActiveSize('medium')"
           >
-            Medium {{ productByColors.medium }}
+            M
           </button>
           <button
             type="button"
             class="btn sizes"
             [disabled]="productByColors.large === 0"
             [value]="productByColors.large"
+            [class.activeSize]="isActiveSize('large')"
+            (click)="setActiveSize('large')"
           >
-            Large {{ productByColors.large }}
+            L
           </button>
           <button
             type="button"
             class="btn sizes"
             [disabled]="productByColors.xlarge === 0"
             [value]="productByColors.xlarge"
+            [class.activeSize]="isActiveSize('xlarge')"
+            (click)="setActiveSize('xlarge')"
           >
-            XLarge {{ productByColors.xlarge }}
+            XL
           </button>
         </div>
       </div>

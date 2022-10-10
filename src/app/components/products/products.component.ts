@@ -33,7 +33,8 @@ export class ProductsComponent implements OnInit {
   };
   id: number = 0;
   loading: boolean = true;
-  clicked: boolean = false;
+  activeButton: string = '';
+  activeSize: string = '';
   constructor(
     public productInfoSer: ProductsService,
     public productByColorSer: ProductInfoService,
@@ -42,18 +43,27 @@ export class ProductsComponent implements OnInit {
     private root: Router
   ) {}
   getColorItems(colorId: number) {
-    console.log('clicked', colorId);
-    // console.log("event>>>",e.target as HTMLButtonElement)
-    if(this.clicked)this.clicked=false;
-    else this.clicked=true
     this.productByColorSer.getProductInfoById(colorId).subscribe((data) => {
       console.log('product color data====>', data);
       this.productByColors = data;
     });
   }
-  sizeClick(clicked:boolean){
-    if(clicked){clicked=false}
-    else{clicked=true}
+  setActive(buttonName: string) {
+    this.activeButton = buttonName;
+  }
+  isActive(buttonName: string) {
+    return this.activeButton === buttonName;
+  }
+  setActiveSize(buttonName: string) {
+    return (this.activeSize = buttonName);
+  }
+  isActiveSize(buttonName: string) {
+    return (
+      this.activeSize === buttonName &&
+      ((this.productByColors.large ||
+        this.productByColors.medium ||
+        this.productByColors.xlarge)!==0)
+    );
   }
   ngOnInit(): void {
     this.id = this.ac.snapshot.params['id'];
@@ -62,6 +72,7 @@ export class ProductsComponent implements OnInit {
       this.productInfo = data;
       this.loading = false;
       this.intialId = data.productInfoId[0]._id;
+      this.activeButton= data.productInfoId[0].colors;
       // initial color
       this.productByColorSer
         .getProductInfoById(this.intialId)
