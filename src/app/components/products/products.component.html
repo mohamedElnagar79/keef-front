@@ -3,12 +3,22 @@
   <div class="row">
     <div class="col-md-6">
       <div class="product-slider">
-        <img
-          *ngFor="let img of productByColors.images"
-          id="{{ productByColors._id }}"
-          alt="{{productInfo.name}"
-          src="{{ img }}"
-        />
+        <div class="row g-0">
+          <div class="col-md-3">
+            <div class="contain-slider">
+              <img
+                *ngFor="let img of productByColors.images"
+                id="{{ productByColors._id }}"
+                alt="{{productInfo.name}"
+                src="{{ img }}"
+                class="slider-img"
+              />
+            </div>
+          </div>
+          <div class="col-md-9">
+            <img src="{{ productByColors.images[1] }}" alt="" class="preview" />
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-6">
