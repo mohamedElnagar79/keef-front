@@ -7,8 +7,14 @@
       *ngFor="let product of allProducts"
       id="{{ product._id }}"
       (click)="getProductInfo(product._id)"
+      #product
     >
-      <img src="{{ product.productInfoId[0].images[0] }}" alt="product" />
+      <img
+        src="{{ product.productInfoId[0].images[0] }}"
+        alt="product"
+        (mouseover)="changeImg(product.productInfoId[0].images[1])"
+        (mouseleave)="changeImg(product.productInfoId[0].images[0])"
+      />
 
       <div class="card-body row g-0">
         <span class="card-text col-9 product-name">{{ product.name }}</span>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductInfoService } from 'src/app/services/productInfo.sevice';
 import { ProductsService } from 'src/app/services/products.service';
@@ -11,6 +11,7 @@ import { Products } from 'src/app/_models/products';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  @ViewChild('preview') img: any;
   productInfo: Products = {
     _id: 0,
     name: '',
@@ -60,10 +61,15 @@ export class ProductsComponent implements OnInit {
   isActiveSize(buttonName: string) {
     return (
       this.activeSize === buttonName &&
-      ((this.productByColors.large ||
+      (this.productByColors.large ||
         this.productByColors.medium ||
-        this.productByColors.xlarge)!==0)
+        this.productByColors.xlarge) !== 0
     );
+  }
+  openImg(img: string) {
+    console.log('image src===>', img);
+
+    this.img.nativeElement.src = img;
   }
   ngOnInit(): void {
     this.id = this.ac.snapshot.params['id'];
@@ -72,7 +78,7 @@ export class ProductsComponent implements OnInit {
       this.productInfo = data;
       this.loading = false;
       this.intialId = data.productInfoId[0]._id;
-      this.activeButton= data.productInfoId[0].colors;
+      this.activeButton = data.productInfoId[0].colors;
       // initial color
       this.productByColorSer
         .getProductInfoById(this.intialId)

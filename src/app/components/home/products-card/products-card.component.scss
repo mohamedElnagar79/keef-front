@@ -1,5 +1,5 @@
 $primaryColor: #e1668d;
-
+$seconderyColor: rgb(141, 140, 140);
 img {
   width: 100% !important;
   height: 100%;
@@ -54,6 +54,6 @@ img {
 .card:hover .card-body {
   transform: translateY(0%);
   // cursor: pointer;
-  background-color: rgb(141, 140, 140);
+  background-color: $seconderyColor;
   // box-shadow:inset 10px 10px 35px grey,inset -10px -10px 35px darkgray;
 }

@@ -1,5 +1,5 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
-<div class="container pt-5" *ngIf="!loading">
+<div class="container pt-5 pb-5" *ngIf="!loading">
   <div class="row">
     <div class="col-md-6">
       <div class="product-slider">
@@ -12,35 +12,44 @@
                 alt="{{productInfo.name}"
                 src="{{ img }}"
                 class="slider-img"
+                (click)="openImg(img)"
+                (mouseover)="openImg(img)"
               />
             </div>
           </div>
           <div class="col-md-9">
-            <img src="{{ productByColors.images[1] }}" alt="" class="preview" />
+            <img
+              src="{{ productByColors.images[0] }}"
+              alt=""
+              class="preview"
+              #preview
+            />
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="product-Details">
-        <h1>{{ productInfo.name }}</h1>
-        <h4>{{ productInfo.price }}{{ " " }}LE</h4>
+        <h1 class="product-name">{{ productInfo.name }}</h1>
+        <h2 class="product-price">
+          Price:{{ " " }}{{ productInfo.price }}{{ " " }}LE
+        </h2>
         <!-- colors -->
         <div class="contain-colors">
           <button
             *ngFor="let product of productInfo.productInfoId"
             [ngClass]="{ 'new-color': product.colors === 'white' }"
             [style.background-color]="product.colors"
-            id="{{ product._id }}"
-            (click)="getColorItems(product._id)"
-            [class.activeColors]="isActive(product.colors)"
-            (click)="setActive(product.colors)"
             type="button"
+            id="{{ product._id }}"
             class="color-btn"
+            [class.activeColors]="isActive(product.colors)"
+            (click)="getColorItems(product._id)"
+            (mouseover)="setActive(product.colors); getColorItems(product._id)"
           ></button>
         </div>
         <!-- sizes -->
-        <div>
+        <div class="contain-sizes">
           <button
             type="button"
             class="btn sizes"
@@ -71,6 +80,10 @@
           >
             XL
           </button>
+        </div>
+        <!-- add do cart -->
+        <div class="contain-cart-btn">
+          <button class="btn cart-btn">Add to cart</button>
         </div>
       </div>
     </div>
