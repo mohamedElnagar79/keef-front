@@ -11,7 +11,7 @@ import { Products } from 'src/app/_models/products';
 export class ProductsCardComponent implements OnInit {
   allProducts: Products[] = [];
   loading: boolean = true;
-  @ViewChild('product') img: any;
+
   constructor(
     private productsSer: ProductsService,
     private ac: ActivatedRoute,
@@ -22,9 +22,9 @@ export class ProductsCardComponent implements OnInit {
   getProductInfo(id: number) {
     this.router.navigateByUrl(`productInfo/${id}`);
   }
-  changeImg(img: any) {
-    // this.img.nativeElement.src = img;
-    console.log();
+  changeImg(e: any, cardImg: any) {
+    console.log('===', e.target.src);
+    e.target.src = cardImg;
   }
 
   ngOnInit(): void {

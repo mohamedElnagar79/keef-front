@@ -1,24 +1,24 @@
-<!-- <h2>{{ allProducts[0].category }}</h2> -->
 <mat-spinner *ngIf="loading"></mat-spinner>
 <div class="card-group main-product" *ngIf="!loading">
-  <div class="row g-0">
-    <div
-      class="card col-12 col-md-6 col-lg-4"
-      *ngFor="let product of allProducts"
-      id="{{ product._id }}"
-      (click)="getProductInfo(product._id)"
-      #product
-    >
-      <img
-        src="{{ product.productInfoId[0].images[0] }}"
-        alt="product"
-        (mouseover)="changeImg(product.productInfoId[0].images[1])"
-        (mouseleave)="changeImg(product.productInfoId[0].images[0])"
-      />
-
-      <div class="card-body row g-0">
-        <span class="card-text col-9 product-name">{{ product.name }}</span>
-        <span class="card-text price col-3">{{ product.price }}</span>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-3" *ngFor="let product of allProducts">
+        <div
+          class="card"
+          id="{{ product._id }}"
+          (click)="getProductInfo(product._id)"
+        >
+          <img
+            src="{{ product.productInfoId[0].images[0] }}"
+            alt="product"
+            (mouseover)="changeImg($event, product.productInfoId[0].images[1])"
+            (mouseleave)="changeImg($event, product.productInfoId[0].images[0])"
+          />
+          <div class="card-body row g-0">
+            <span class="card-text col-9 product-name">{{ product.name }}</span>
+            <span class="card-text price col-3">{{ product.price }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

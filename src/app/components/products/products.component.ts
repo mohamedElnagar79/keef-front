@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
   loading: boolean = true;
   activeButton: string = '';
   activeSize: string = '';
+
   constructor(
     public productInfoSer: ProductsService,
     public productByColorSer: ProductInfoService,
@@ -67,8 +68,6 @@ export class ProductsComponent implements OnInit {
     );
   }
   openImg(img: string) {
-    console.log('image src===>', img);
-
     this.img.nativeElement.src = img;
   }
   ngOnInit(): void {

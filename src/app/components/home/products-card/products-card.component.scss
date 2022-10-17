@@ -8,24 +8,23 @@ img {
   //   display: inline-block;
 }
 
-.main-product {
-  margin: 1rem auto;
-  padding: 2rem;
-}
+// .main-product {
+//   margin: 1rem auto;
+//   padding: 2rem;
+// }
 .card {
   margin: 1rem auto;
   height: 420px !important;
   border: none;
-  box-shadow: 1px 1px 3px #e1668d, -1px -1px 3px #e1668d;
+  // box-shadow: 1px 1px 3px #e1668d, -1px -1px 3px #e1668d;
   position: relative;
   overflow: hidden;
-  width: 22%;
+  width: 100%;
 }
 .card:hover {
-  transform: scale(1.1);
-  transition: ease-in-out 1s;
+  transition: ease-in-out 1ms;
   cursor: pointer;
-  box-shadow: 2px 2px 5px #e1668d, -2px -2px 5px #e1668d;
+  box-shadow: 1px 1px 5px #e1668d, -1px -1px 5px #e1668d;
 }
 .price {
   background-color: #e1668d;
