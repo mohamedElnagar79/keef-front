@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
   loading: boolean = true;
   activeButton: string = '';
   activeSize: string = '';
+  activeImgId: number = 0;
 
   constructor(
     public productInfoSer: ProductsService,
@@ -55,6 +56,12 @@ export class ProductsComponent implements OnInit {
   }
   isActive(buttonName: string) {
     return this.activeButton === buttonName;
+  }
+  isImgActive(imageId: number) {
+    return this.activeImgId === imageId;
+  }
+  setImageActive(imageId: number) {
+    this.activeImgId = imageId;
   }
   setActiveSize(buttonName: string) {
     return (this.activeSize = buttonName);

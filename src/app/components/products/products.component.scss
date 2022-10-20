@@ -20,7 +20,8 @@ $seconderyColor: rgb(141, 140, 140);
       opacity: 0.5;
       display: block;
     }
-    .slider-img:hover {
+    .slider-img:hover,
+    .activeImg {
       cursor: pointer;
       opacity: 1;
       transform: scale(1.1);

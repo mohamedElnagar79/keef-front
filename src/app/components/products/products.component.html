@@ -7,13 +7,13 @@
           <div class="col-2">
             <div class="contain-slider">
               <img
-                *ngFor="let img of productByColors.images"
-                id="{{ productByColors._id }}"
-                alt="{{productInfo.name}"
+                *ngFor="let img of productByColors.images; let i = index"
+                id="{{ i + 1 }}"
+                alt="{{ productInfo.name }}"
                 src="{{ img }}"
                 class="slider-img"
-                (click)="openImg(img)"
-                (mouseover)="openImg(img)"
+                (mouseover)="openImg(img); setImageActive(i)"
+                [class.activeImg]="isImgActive(i)"
               />
             </div>
           </div>
