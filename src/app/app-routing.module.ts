@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       import('./core/admin-sign-up/admin-sign-up.module').then(
         (res) => res.AdminSignUpModule
       ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'signIn',
@@ -35,6 +37,11 @@ const routes: Routes = [
       import('./components/products/products.module').then(
         (res) => res.ProductsModule
       ),
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./components/cart/cart.module').then((res) => res.CartModule),
   },
 ];
 

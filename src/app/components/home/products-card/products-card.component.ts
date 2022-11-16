@@ -23,7 +23,6 @@ export class ProductsCardComponent implements OnInit {
     this.router.navigateByUrl(`productInfo/${id}`);
   }
   changeImg(e: any, cardImg: any) {
-    console.log('===', e.target.src);
     e.target.src = cardImg;
   }
 

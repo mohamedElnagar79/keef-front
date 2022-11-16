@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { Login } from 'src/app/_models/login';
@@ -19,18 +20,24 @@ export class SignInComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-  loginSubmit() {
-    // this.root.navigateByUrl("/students")
-    this.elogin.addservice(this.login).subscribe(
-      (a) => {
-        console.log('=====>', a);
-        (this.loginFlag = false), this.router.navigateByUrl('/home');
-      },
-      (e) => {
-        throw new Error('www');
-        console.log('error=====>', e.error.data);
-        this.loginFlag = true;
-      }
-    );
+  loginSubmit(f: NgForm) {
+    if (f.valid) {
+      // this.root.navigateByUrl("/students")
+      this.elogin.addservice(this.login).subscribe(
+        (a) => {
+          console.log(' you now log in=====>', a);
+          this.elogin.isAuthenticated === true,
+            (this.loginFlag = false),
+            this.router.navigateByUrl('/home');
+        },
+        (e) => {
+          this.loginFlag = true;
+          this.elogin.isAuthenticated === false;
+          throw new Error('invalid Email or Password');
+          // console.log('error=====>', e.error.data);
+        }
+      );
+      f.reset();
+    }
   }
 }

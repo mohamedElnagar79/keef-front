@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductInfoService } from 'src/app/services/productInfo.sevice';
-import { ProductsService } from 'src/app/services/products.service';
-import { ProductInfo } from 'src/app/_models/product-info';
-import { Products } from 'src/app/_models/products';
+import { CartService } from '../../services/cart.service';
+import { ProductInfoService } from '../../services/productInfo.sevice';
+import { ProductsService } from '../../services/products.service';
+import { CartOrder } from '../../_models/cart-order';
+import { ProductInfo } from '../../_models/product-info';
+import { Products } from '../../_models/products';
 
 @Component({
   selector: 'app-products',
@@ -23,7 +25,8 @@ export class ProductsComponent implements OnInit {
     productInfoId: [],
   };
   intialId: number = 0;
-
+  totalPrice: number = 0;
+  orderCounter: number = 1;
   productByColors: ProductInfo = {
     _id: 0,
     colors: '',
@@ -32,23 +35,41 @@ export class ProductsComponent implements OnInit {
     large: 0,
     xlarge: 0,
   };
-  id: number = 0;
+  id: number = Number(this.ac.snapshot.params['id']);
   loading: boolean = true;
   activeButton: string = '';
   activeSize: string = '';
   activeImgId: number = 0;
+  cartOrder: CartOrder = new CartOrder(
+    this.id,
+    {
+      productInfoId: 0,
+      size: '',
+      price: 0,
+    },
+    this.productInfo.name,
+    '',
+    ''
+  );
 
+  // productInfoId: 0,
+  //       size: 'large',
+  //       price: 0,
   constructor(
     public productInfoSer: ProductsService,
     public productByColorSer: ProductInfoService,
     private ac: ActivatedRoute,
     public router: Router,
-    private root: Router
+    private root: Router,
+    public cartser: CartService
   ) {}
   getColorItems(colorId: number) {
     this.productByColorSer.getProductInfoById(colorId).subscribe((data) => {
-      console.log('product color data====>', data);
       this.productByColors = data;
+      console.log('ddddd', data);
+      this.cartOrder.productInfo.productInfoId = data._id;
+      this.cartOrder.color = data.colors;
+      this.cartOrder.colorImg = data.images[0];
     });
   }
   setActive(buttonName: string) {
@@ -64,6 +85,7 @@ export class ProductsComponent implements OnInit {
     this.activeImgId = imageId;
   }
   setActiveSize(buttonName: string) {
+    this.cartOrder.productInfo.size = buttonName;
     return (this.activeSize = buttonName);
   }
   isActiveSize(buttonName: string) {
@@ -77,6 +99,43 @@ export class ProductsComponent implements OnInit {
   openImg(img: string) {
     this.img.nativeElement.src = img;
   }
+  // on add order
+  //  increase order
+  increaseOrder() {
+    if (this.orderCounter < 5) {
+      this.totalPrice += this.productInfo.price;
+      this.orderCounter += 1;
+    }
+  }
+  // decreaseOrder
+  decreaseOrder() {
+    if (this.totalPrice > this.productInfo.price) {
+      this.totalPrice -= this.productInfo.price;
+      this.orderCounter -= 1;
+    }
+  }
+  // create order
+  // addOrder() {
+  //   console.log('clicked');
+  // }
+  // add order to cart
+  addToCart() {
+    if (this.cartser.cartOrders.length < 20) {
+      if (this.cartOrder.productInfo.size) {
+        console.log('cart Order ===> ', this.cartOrder);
+        console.log('type ', this.cartOrder);
+        this.cartOrder.name = this.productInfo.name;
+        this.cartOrder.productInfo.price = this.productInfo.price;
+        for (let i = 0; i < this.orderCounter; i++) {
+          this.cartser.cartOrders.push(this.cartOrder);
+        }
+        console.log(' ===> ', this.cartser.cartOrders);
+        console.log('length ===> ', this.cartser.cartOrders.length);
+      } else {
+        alert('choose your size please');
+      }
+    }
+  }
   ngOnInit(): void {
     this.id = this.ac.snapshot.params['id'];
     this.productInfoSer.getProductById(this.id).subscribe((data) => {
@@ -85,12 +144,16 @@ export class ProductsComponent implements OnInit {
       this.loading = false;
       this.intialId = data.productInfoId[0]._id;
       this.activeButton = data.productInfoId[0].colors;
+      this.totalPrice = this.productInfo.price;
+
       // initial color
       this.productByColorSer
         .getProductInfoById(this.intialId)
         .subscribe((data) => {
-          console.log('product color data====>', data);
           this.productByColors = data;
+          this.cartOrder.productInfo.productInfoId = data._id;
+          this.cartOrder.color = data.colors;
+          this.cartOrder.colorImg = data.images[0];
         });
     });
   }

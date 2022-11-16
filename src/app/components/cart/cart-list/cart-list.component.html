@@ -1,0 +1,49 @@
+<p>cart-list works!</p>
+<div *ngIf="currentOrders.length > 0">
+  <div class="container">
+    <div class="row">
+      <div class="col-10">
+        <div class="col-12" *ngFor="let order of currentOrders; let i = index">
+          <div class="row">
+            <div class="col-2">
+              <img
+                src="{{ currentOrders[i].colorImg }}"
+                alt="nn"
+                class="responsive"
+              />
+            </div>
+            <div class="col-8">
+              <div class="order-info">
+                <h1>{{ currentOrders[i].name }}</h1>
+                <h1>price{{ " " }}{{ currentOrders[i].productInfo.price }}</h1>
+                <h1>size{{ " " }}{{ currentOrders[i].productInfo.size }}</h1>
+              </div>
+            </div>
+            <div class="col-2">
+              <button>x</button>
+            </div>
+          </div>
+
+          <hr />
+        </div>
+      </div>
+      <div class="col-2">
+        <h1>Total price</h1>
+        <button>add order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div *ngFor="let item of currentOrders; let i = index">
+  <h1>{{ item[i].productInfo[i] }}</h1>
+  </div> -->
+  <!-- <h1>{{ currentOrders[0].productInfo[0].price }}</h1>
+<div *ngFor="let order of currentOrders; let i = index">
+  <h1>{{ currentOrders[i].productInfo[i].price }}</h1>
+  <h1>{{ currentOrders[i].productInfo[i].productInfo }}</h1>
+  <h1>{{ currentOrders[i].productInfo[i].size }}</h1>
+</div> -->
+</div>
+<div *ngIf="currentOrders.length == 0">
+  <h1>cart is empty</h1>
+</div>

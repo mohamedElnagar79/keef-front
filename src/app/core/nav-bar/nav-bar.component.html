@@ -24,6 +24,12 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/adminSignUp">adminSign Up</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="isAuth">log out</a>
+        </li>
+        <li>
+          <a class="nav-link" routerLink="/cart">Cart{{ orderNum }}</a>
+        </li>
       </ul>
     </div>
   </nav>
