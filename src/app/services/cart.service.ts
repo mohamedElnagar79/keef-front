@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   cartOrders: any = [];
+
   constructor() {}
+  delOrderFromCart(index: number) {
+    this.cartOrders.splice(index, 1);
+  }
 }

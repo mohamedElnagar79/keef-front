@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 
 @Component({
@@ -8,14 +8,22 @@ import { CartService } from '../../../services/cart.service';
 })
 export class CartListComponent implements OnInit {
   currentOrders: any = [];
+  totalPrice: number = 0;
   constructor(private cartSer: CartService) {}
-
+  delOrderFromCart(i: number) {
+    this.cartSer.delOrderFromCart(i);
+    this.totalPrice = 0;
+    for (let i = 0; i <= this.cartSer.cartOrders.length - 1; i++) {
+      this.totalPrice += this.currentOrders[i].productInfo.price;
+    }
+    // console.log('cart now====>', this.cartSer.cartOrders);
+  }
   ngOnInit(): void {
-    if (this.cartSer.cartOrders.length > 2) {
+    if (this.cartSer.cartOrders.length >= 1) {
       this.currentOrders = this.cartSer.cartOrders;
-      console.log('current ', this.currentOrders[0].productInfo[0]);
-      console.log('cart', this.cartSer.cartOrders);
-      // console.log('price', this.cartSer.cartOrders[0].productInfo[0].price);
+      for (let i = 0; i <= this.cartSer.cartOrders.length - 1; i++) {
+        this.totalPrice += this.currentOrders[i].productInfo.price;
+      }
     }
   }
 }
