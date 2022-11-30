@@ -27,6 +27,7 @@ export class ProductsComponent implements OnInit {
   intialId: number = 0;
   totalPrice: number = 0;
   orderCounter: number = 1;
+  sizeFlag: boolean = false;
   productByColors: ProductInfo = {
     _id: 0,
     colors: '',
@@ -86,6 +87,7 @@ export class ProductsComponent implements OnInit {
   }
   setActiveSize(buttonName: string) {
     this.cartOrder.productInfo.size = buttonName;
+    this.sizeFlag = false;
     return (this.activeSize = buttonName);
   }
   isActiveSize(buttonName: string) {
@@ -114,25 +116,23 @@ export class ProductsComponent implements OnInit {
       this.orderCounter -= 1;
     }
   }
-  // create order
-  // addOrder() {
-  //   console.log('clicked');
-  // }
+
   // add order to cart
   addToCart() {
     if (this.cartser.cartOrders.length < 20) {
       if (this.cartOrder.productInfo.size) {
-        console.log('cart Order ===> ', this.cartOrder);
-        console.log('type ', this.cartOrder);
+        console.log('current product in order ', this.cartOrder);
         this.cartOrder.name = this.productInfo.name;
         this.cartOrder.productInfo.price = this.productInfo.price;
         for (let i = 0; i < this.orderCounter; i++) {
           this.cartser.cartOrders.push(this.cartOrder);
         }
-        console.log(' ===> ', this.cartser.cartOrders);
-        console.log('length ===> ', this.cartser.cartOrders.length);
+        // console.log(' ===> ', this.cartser.cartOrders);
+        // console.log('length ===> ', this.cartser.cartOrders.length);
+        this.sizeFlag = false;
       } else {
-        alert('choose your size please');
+        this.sizeFlag = true;
+        console.log('no size', this.sizeFlag);
       }
     }
   }

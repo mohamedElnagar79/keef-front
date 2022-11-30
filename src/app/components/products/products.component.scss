@@ -128,8 +128,14 @@ $seconderyColor: rgb(141, 140, 140);
       transform: scale(1.12);
     }
   }
-  .modal-body .form-group {
-    margin: 1rem 0 0;
+  .cartbtn {
+    color: #fff;
+    background-color: #e1668d;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 0px solid #e1668d;
+    font-weight: 500;
+    font-size: 18px;
   }
   .contain-cart-btn {
     position: absolute;
