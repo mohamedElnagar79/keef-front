@@ -12,9 +12,10 @@ import { AdminSignUpModule } from './core/admin-sign-up/admin-sign-up.module';
 import { ProductsModule } from './components/products/products.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CartModule } from './components/cart/cart.module';
+import { OrderComponent } from './components/order/order.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, OrderComponent],
   imports: [
     AppRoutingModule,
     HomeModule,

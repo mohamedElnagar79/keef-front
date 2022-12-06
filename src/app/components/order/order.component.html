@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 class="head">My Orders</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>No</td>
+        <td>name</td>
+        <td>size</td>
+        <td>Totalprice</td>
+        <td>order Status</td>
+        <td>del</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of userOrders; let j = index">
+        <!-- <td *ngFor="let orderName of order.products">{{ orderName.name }}</td> -->
+        <!-- <td *ngFor="let orderSize of order.productInfo">
+          {{ orderSize.size }}
+        </td> -->
+        <td>{{ j + 1 }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let orderName of order.products">
+              {{ orderName.name }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li *ngFor="let orderSize of order.productInfo">
+              {{ orderSize.size }}
+            </li>
+          </ul>
+        </td>
+        <td>{{ order.totalPrice }}</td>
+        <td
+          class="fw-bold"
+          [ngClass]="{
+            'text-success': order.orderStatus == 'accepted' || 'completed',
+            'text-warning': order.orderStatus == 'pending',
+            'text-primary': order.orderStatus == 'on the way'
+          }"
+        >
+          {{ order.orderStatus }}
+        </td>
+        <td>
+          <button
+            class="btn btn-danger del"
+            [disabled]="order.orderStatus !== 'pending'"
+            (click)="cancelOrder(j)"
+          >
+            x
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
