@@ -24,12 +24,18 @@ export class SignInComponent implements OnInit {
     if (f.valid) {
       // this.root.navigateByUrl("/students")
       this.elogin.addservice(this.login).subscribe(
-        (a) => {
+        (a: any) => {
           console.log(' you now log in=====>', a);
-          this.elogin.isAuthenticated === true,
-            (this.loginFlag = false),
-            this.router.navigateByUrl('/home');
+          this.elogin.isAuthenticated === true, (this.loginFlag = false);
+          if (a.data) {
+            if (a.data.role === 'user') {
+              this.router.navigateByUrl('/home');
+            }
+          } else if (!a.data){
+            this.router.navigateByUrl('/admin')
+          } console.log('hello admin');
         },
+
         (e) => {
           this.loginFlag = true;
           this.elogin.isAuthenticated === false;

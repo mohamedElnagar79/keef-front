@@ -1,0 +1,33 @@
+.head {
+  color: #e1668d;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+table {
+  text-align: center;
+  vertical-align: middle;
+  .no-col {
+    background-color: #c4c4c4;
+    color: #fff;
+  }
+  thead tr {
+    font-size: 20px;
+    padding: 2rem 0;
+  }
+  ul li {
+    list-style: none;
+    font-weight: bold;
+    // display: inline;
+    // margin-right: 0.5rem;
+  }
+  .more-details {
+    color: #e1668d;
+    background: none;
+    border: 1px solid #e1668d;
+    border-radius: 5px;
+    padding: 5px;
+    width: 85%;
+    font-weight: 500;
+  }
+}

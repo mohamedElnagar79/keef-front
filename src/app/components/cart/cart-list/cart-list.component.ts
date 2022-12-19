@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/_models/order';
 import { CartService } from '../../../services/cart.service';
@@ -22,7 +23,11 @@ export class CartListComponent implements OnInit {
     productInfo: [{}],
     notes: '',
   };
-  constructor(private cartSer: CartService, private orderSer: OrderService) {}
+  constructor(
+    private cartSer: CartService,
+    private orderSer: OrderService,
+    public router: Router
+  ) {}
   // delete current ordecr from cart
   delOrderFromCart(i: number) {
     this.cartSer.delOrderFromCart(i);
@@ -45,6 +50,9 @@ export class CartListComponent implements OnInit {
     this.orderSer.addservice(this.order).subscribe(
       (data) => {
         console.log('added', data);
+        this.cartSer.cartOrders = [];
+        this.currentOrders = [];
+        this.router.navigateByUrl(`userOrders/${2}`);
       },
       (e) => {
         console.log('error ', e);

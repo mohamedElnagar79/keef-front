@@ -30,6 +30,7 @@ export class ProductsCardComponent implements OnInit {
     this.productsSer.getProducts().subscribe((data) => {
       this.allProducts = data;
       this.loading = false;
+      console.log('data', data);
     });
   }
 }

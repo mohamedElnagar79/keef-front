@@ -1,0 +1,41 @@
+.sidebar {
+  margin: 2rem 0 0 2rem;
+  padding: 1rem 4rem 1rem 0.1rem;
+  width: 100%;
+  .side-offcanvas {
+    margin-top: 3.28rem;
+    background-color: #c4c4c4;
+    width: 20%;
+    .offcanvas-body {
+      padding: 1rem 0.5rem;
+      ul {
+        list-style: none;
+        width: 100%;
+        li {
+          margin: 1rem auto;
+          width: 95%;
+          margin-left: 0;
+          padding: 0.5rem 0 0.5rem 0.2rem;
+          a {
+            color: #fff;
+            text-decoration: none;
+            width: 100%;
+            font-weight: 400;
+            font-size: 20px;
+            padding-left: 0.5rem;
+          }
+        }
+        li:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .active {
+    border: 2px solid #fff;
+  }
+  .actColor {
+    color: #e1668d !important;
+    font-weight: 500 !important;
+  }
+}

@@ -14,6 +14,7 @@ export class OrderService {
   getUserOrders(id: number) {
     return this.http.get<[]>(this.url + 'userOrders/' + `${id}`);
   }
+
   cancelOrder(id: number) {
     return this.http.delete(this.url + 'order/' + `${id}`);
   }

@@ -1,0 +1,63 @@
+<div class="sidebar">
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling"
+    aria-controls="offcanvasScrolling"
+  >
+    Open
+  </button>
+
+  <div
+    class="side-offcanvas offcanvas show offcanvas-start"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    tabindex="-1"
+    id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel"
+  >
+    <div class="offcanvas-header">
+      <button
+        type="button"
+        class="btn-close btn btn-danger ms-4"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul>
+        <li
+          [class.active]="isActive('profile')"
+          [routerLink]="['profile']"
+          (click)="setActive('profile')"
+        >
+          <a [class.actColor]="isActive('profile')">Profile</a>
+        </li>
+        <li
+          [class.active]="isActive('users')"
+          [routerLink]="['users']"
+          (click)="setActive('users')"
+        >
+          <a [class.actColor]="isActive('users')" (click)="setActive('users')"
+            >Users</a
+          >
+        </li>
+        <li
+          [class.active]="isActive('products')"
+          [routerLink]="['products']"
+          (click)="setActive('products')"
+        >
+          <a [class.actColor]="isActive('products')">Products</a>
+        </li>
+        <li
+          [class.active]="isActive('orders')"
+          [routerLink]="['orders']"
+          (click)="setActive('orders')"
+        >
+          <a [class.actColor]="isActive('orders')">Orders</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

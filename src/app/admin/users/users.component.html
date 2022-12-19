@@ -1,0 +1,27 @@
+<div class="contain-users p-5">
+  <h1 class="mt-5 head">Keef Users</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td class="no-col">No</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>PhoneNumber</td>
+        <td>Del</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td class="no-col">{{ i + 1 }}</td>
+        <td>{{ user.firstName }}{{ " " }}{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>
+          <button class="btn btn-danger del" (click)="deleteUser(user._id, i)">
+            x
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

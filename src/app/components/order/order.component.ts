@@ -9,11 +9,14 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderComponent implements OnInit {
   userOrders: any = [];
   constructor(private orderSer: OrderService) {}
-  cancelOrder(i: number) {
-    if (window.confirm('Are sure you want to delete this item ?')) {
-      this.userOrders.splice(i, 1);
-      this.orderSer.cancelOrder(i).subscribe((data) => {
+  // to cancel order
+  cancelOrder(id: number, index: number) {
+    console.log('id>>>>>', id, 'index>>>>', index);
+    if (window.confirm('Are sure you want to cancel this order ?')) {
+      this.userOrders.splice(index, 1);
+      this.orderSer.cancelOrder(id).subscribe((data) => {
         console.log('deleted ', data);
+        console.log('now ', this.userOrders);
       });
     }
   }

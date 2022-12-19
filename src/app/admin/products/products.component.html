@@ -1,0 +1,44 @@
+<div class="contain-products p-5">
+  <h1 class="mt-5 head">Keef Products</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td class="no-col">No</td>
+        <td>Name</td>
+        <td>price</td>
+        <td>colors</td>
+        <td>Sale</td>
+        <td>gender</td>
+        <td>Details</td>
+        <td>Del</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <td class="no-col">{{ i + 1 }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+          <ul>
+            <li
+              *ngFor="let item of product.productInfoId"
+              [style.color]="item.colors"
+            >
+              {{ item.colors }}
+            </li>
+          </ul>
+        </td>
+        <td>{{ product.sale }}</td>
+        <td>{{ product.gender }}</td>
+        <td>
+          <button class="more-details" (click)="showMore(product._id)">
+            More Details
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger del">x</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

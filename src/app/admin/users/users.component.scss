@@ -1,0 +1,18 @@
+.head {
+  color: #e1668d;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+table {
+  text-align: center;
+  vertical-align: middle;
+  .no-col {
+    background-color: #c4c4c4;
+    color: #fff;
+  }
+  thead tr {
+    font-size: 20px;
+    padding: 2rem 0;
+  }
+}

@@ -3,37 +3,36 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <td>No</td>
-        <td>name</td>
-        <td>size</td>
-        <td>Totalprice</td>
-        <td>order Status</td>
+        <td style="padding: 1rem 0">No</td>
+        <td>Name</td>
+        <td>Size</td>
+        <td>Total price</td>
+        <td>Order Status</td>
         <td>del</td>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let order of userOrders; let j = index">
-        <!-- <td *ngFor="let orderName of order.products">{{ orderName.name }}</td> -->
-        <!-- <td *ngFor="let orderSize of order.productInfo">
-          {{ orderSize.size }}
-        </td> -->
-        <td>{{ j + 1 }}</td>
-        <td>
+        <td style="color: #e1668d; font-weight: bold; width: 3%">
+          {{ j + 1 }}
+        </td>
+        <td style="width: 20%">
           <ul>
             <li *ngFor="let orderName of order.products">
               {{ orderName.name }}
             </li>
           </ul>
         </td>
-        <td>
+        <td style="width: 15%">
           <ul>
             <li *ngFor="let orderSize of order.productInfo">
               {{ orderSize.size }}
             </li>
           </ul>
         </td>
-        <td>{{ order.totalPrice }}</td>
+        <td style="width: 15%">{{ order.totalPrice }}</td>
         <td
+          style="width: 20%"
           class="fw-bold"
           [ngClass]="{
             'text-success': order.orderStatus == 'accepted' || 'completed',
@@ -43,11 +42,11 @@
         >
           {{ order.orderStatus }}
         </td>
-        <td>
+        <td style="width: 4%">
           <button
             class="btn btn-danger del"
             [disabled]="order.orderStatus !== 'pending'"
-            (click)="cancelOrder(j)"
+            (click)="cancelOrder(order._id, j)"
           >
             x
           </button>
